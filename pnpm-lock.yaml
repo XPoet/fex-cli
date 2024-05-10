@@ -1,0 +1,17 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .: {}
+
+  packages/fex-cli: {}
+
+  playground:
+    dependencies:
+      fex-cli:
+        specifier: workspace:^
+        version: link:../packages/fex-cli

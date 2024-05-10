@@ -1,0 +1,12 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "test fex-cli",
+  "scripts": {
+    "fex": "fex"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "fex-cli": "workspace:^"
+  }
+}

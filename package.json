@@ -1,0 +1,13 @@
+{
+  "name": "fex-cli-monorepo",
+  "version": "1.0.0",
+  "description": "fex-cli scaffold monorepo",
+  "type": "module",
+  "scripts": {
+    "fex": "pnpm -C playground fex"
+  },
+  "author": "XPoet <i@xpoet.cn>",
+  "engines": {
+    "node": ">=18"
+  }
+}
