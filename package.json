@@ -4,10 +4,14 @@
   "description": "fex-cli scaffold monorepo",
   "type": "module",
   "scripts": {
-    "fex": "pnpm -C playground fex"
+    "fex": "pnpm -C playground fex",
+    "format": "prettier ./packages/fex-cli --write"
   },
   "author": "XPoet <i@xpoet.cn>",
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
