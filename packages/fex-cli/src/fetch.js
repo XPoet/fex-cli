@@ -1,6 +1,8 @@
 import { select } from '@inquirer/prompts'
-import { REPO_URL } from './constant.js'
+import util from 'node:util'
+import { DOWNLOAD_URL, REPO_URL } from './constant.js'
 import wrapLoading from './spinner.js'
+import downloadGirRepo from 'download-git-repo'
 
 const getBranches = async () => {
   try {
@@ -36,4 +38,19 @@ export const fetchBranch = async () => {
   })
 
   return branch
+}
+
+export const downloadTemplate = async (projectPath, branch) => {
+  const download = util.promisify(downloadGirRepo)
+
+  await wrapLoading(
+    download,
+    {
+      startMsg: 'Downloading template ...',
+      successMsg: 'Template downloaded successfully!',
+      failMsg: 'Template download failed, retry later!'
+    },
+    `${DOWNLOAD_URL}#${branch}`,
+    projectPath
+  )
 }
