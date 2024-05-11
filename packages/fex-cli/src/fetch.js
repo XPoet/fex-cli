@@ -1,12 +1,13 @@
 import { select } from '@inquirer/prompts'
 import { REPO_URL } from './constant.js'
+import wrapLoading from './spinner.js'
 
 const getBranches = async () => {
   try {
     const res = await fetch(REPO_URL)
 
     if (!res.ok) {
-      return []
+      return Promise.reject(null)
     }
     const data = await res.json()
     return data.map((b) => ({
@@ -14,14 +15,18 @@ const getBranches = async () => {
       value: b.name
     }))
   } catch {
-    return []
+    return Promise.reject(null)
   }
 }
 
 export const fetchBranch = async () => {
-  const branches = await getBranches()
+  const branches = await wrapLoading(getBranches, {
+    startMsg: 'Loading project template ...',
+    successMsg: 'Project template loaded successfully!',
+    failMsg: 'Project template load failed, retry later!'
+  })
 
-  if (branches.length === 0) {
+  if (!branches || branches?.length === 0) {
     return null
   }
 
