@@ -6,6 +6,9 @@
   "bin": {
     "fex": "./bin/cli.js"
   },
+  "scripts": {
+    "publish": "npm publish"
+  },
   "type": "module",
   "keywords": [
     "fex-cli",

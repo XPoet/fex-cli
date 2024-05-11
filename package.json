@@ -8,7 +8,8 @@
     "format": "prettier ./packages/fex-cli --write",
     "lint": "eslint ./packages/fex-cli",
     "lint:fix": "eslint --fix ./packages/fex-cli",
-    "prepare": "husky"
+    "prepare": "husky",
+    "publish": "pnpm -C packages/fex-cli publish"
   },
   "author": "XPoet <i@xpoet.cn>",
   "engines": {
