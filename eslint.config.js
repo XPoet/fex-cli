@@ -9,7 +9,8 @@ export default [
     languageOptions: {
       globals: {
         console: true,
-        process: true
+        process: true,
+        fetch: true
       }
     },
     // ignore files

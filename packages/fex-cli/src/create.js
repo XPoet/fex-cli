@@ -2,6 +2,14 @@ import path from 'node:path'
 import fs from 'fs-extra'
 import chalk from 'chalk'
 import { select } from '@inquirer/prompts'
+import { fetchBranch } from './fetch.js'
+
+const generateTemplate = async (projectName, projectPath) => {
+  console.log('projectName: ', projectName)
+  console.log('projectPath: ', projectPath)
+  const branch = await fetchBranch()
+  console.log('branch: ', branch)
+}
 
 export default async (name, options) => {
   const projectPath = path.resolve(process.cwd(), name)
@@ -32,12 +40,12 @@ export default async (name, options) => {
       if (overwrite) {
         await fs.remove(projectPath)
         console.log(chalk.blue('Overwrite project'))
+        await generateTemplate(name, projectPath)
       } else {
         console.log(chalk.red('Create cancel'))
       }
     }
   } else {
-    console.log('Project path not exist')
-    fs.mkdirs(projectPath)
+    await generateTemplate(name, projectPath)
   }
 }
