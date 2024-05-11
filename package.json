@@ -7,7 +7,8 @@
     "fex": "pnpm -C playground fex",
     "format": "prettier ./packages/fex-cli --write",
     "lint": "eslint ./packages/fex-cli",
-    "lint:fix": "eslint --fix ./packages/fex-cli"
+    "lint:fix": "eslint --fix ./packages/fex-cli",
+    "prepare": "husky"
   },
   "author": "XPoet <i@xpoet.cn>",
   "engines": {
@@ -19,6 +20,8 @@
     "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5"
   }
 }
