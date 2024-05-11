@@ -12,5 +12,8 @@
     "front-end",
     "scaffold"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.0.0"
+  }
 }
