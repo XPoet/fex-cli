@@ -4,11 +4,11 @@ import chalk from 'chalk'
 import { select } from '@inquirer/prompts'
 import { downloadTemplate, fetchBranch } from './fetch.js'
 
-const generateTemplate = async (projectPath) => {
+const generateTemplate = async (projectName, projectPath) => {
   const branch = await fetchBranch()
 
   if (branch) {
-    await downloadTemplate(projectPath, branch)
+    await downloadTemplate(projectName, projectPath, branch)
   }
 }
 
@@ -41,12 +41,12 @@ export default async (name, options) => {
       if (overwrite) {
         await fs.remove(projectPath)
         console.log(chalk.blue('Overwrite project'))
-        await generateTemplate(projectPath)
+        await generateTemplate(name, projectPath)
       } else {
         console.log(chalk.red('Create cancel'))
       }
     }
   } else {
-    await generateTemplate(projectPath)
+    await generateTemplate(name, projectPath)
   }
 }

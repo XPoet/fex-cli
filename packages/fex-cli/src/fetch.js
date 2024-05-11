@@ -3,6 +3,7 @@ import util from 'node:util'
 import { DOWNLOAD_URL, REPO_URL } from './constant.js'
 import wrapLoading from './spinner.js'
 import downloadGirRepo from 'download-git-repo'
+import chalk from 'chalk'
 
 const getBranches = async () => {
   try {
@@ -40,11 +41,11 @@ export const fetchBranch = async () => {
   return branch
 }
 
-export const downloadTemplate = async (projectPath, branch) => {
-  const download = util.promisify(downloadGirRepo)
+export const downloadTemplate = async (projectName, projectPath, branch) => {
+  const downloadFn = util.promisify(downloadGirRepo)
 
-  await wrapLoading(
-    download,
+  const downloadRes = await wrapLoading(
+    downloadFn,
     {
       startMsg: 'Downloading template ...',
       successMsg: 'Template downloaded successfully!',
@@ -53,4 +54,8 @@ export const downloadTemplate = async (projectPath, branch) => {
     `${DOWNLOAD_URL}#${branch}`,
     projectPath
   )
+
+  if (downloadRes) {
+    console.log(`\r\n cd ${chalk.cyan(projectName)}\r\n npm install`)
+  }
 }

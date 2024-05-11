@@ -12,7 +12,7 @@ export default async (
   try {
     const res = await fn(...args)
     spinner.succeed(successMsg)
-    return res
+    return res || true
   } catch {
     spinner.fail(failMsg)
     return null
