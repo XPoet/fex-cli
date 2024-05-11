@@ -8,7 +8,8 @@ export default [
     rules: {},
     languageOptions: {
       globals: {
-        console: true
+        console: true,
+        process: true
       }
     },
     // ignore files

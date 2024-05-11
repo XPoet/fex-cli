@@ -46,3 +46,7 @@ Thumbs.db
 
 # Other
 *.local
+
+# cli test files
+playground/*
+!playground/package.json

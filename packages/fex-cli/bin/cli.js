@@ -1,8 +1,9 @@
 #! /usr/bin/env node
 
-import { Command } from 'commander'
 import chalk from 'chalk'
+import { Command } from 'commander'
 import { CLI_NAME, DESC, VERSION } from '../src/constant.js'
+import createProject from '../src/create.js'
 
 const program = new Command()
 
@@ -14,8 +15,7 @@ program
   .argument('<name>', 'project name')
   .option('-f, --force', 'overwrite project directory if it already exists')
   .action((name, option) => {
-    console.log('name: ', name)
-    console.log('options: ', option)
+    createProject(name, option)
   })
 
 program.on('--help', () => {
