@@ -1,6 +1,6 @@
 {
   "name": "fex-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "front-end scaffold, a common development template for creating front-end projects.",
   "author": "XPoet <i@xpoet.cn>",
   "bin": {
