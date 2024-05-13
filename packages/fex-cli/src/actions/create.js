@@ -2,7 +2,7 @@ import path from 'node:path'
 import fs from 'fs-extra'
 import chalk from 'chalk'
 import { select } from '@inquirer/prompts'
-import { downloadTemplate, fetchBranch } from './fetch.js'
+import { downloadTemplate, fetchBranch } from '../fetch.js'
 
 const generateTemplate = async (projectName, projectPath) => {
   const branch = await fetchBranch()
